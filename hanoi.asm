@@ -38,11 +38,6 @@ hanoi:
 	lw s2, 8(sp)		#recuperar la direccion de auxiliary
 	lw s1, 12(sp)		#recuperar la direccion de source
 	lw s0, 16(sp)		#recuperar el numero de discos
-	sw zero, 0(sp)		#limpiar direccion de retorno guardada en stack
-	sw zero, 4(sp)		#limpiar dest guardado en stack
-	sw zero, 8(sp)		#limpiar aux guardado en stack
-	sw zero, 12(sp)		#limpiar source guardado en stack
-	sw zero, 16(sp)		#limpiar numero de discos guardado en stack
 	addi sp, sp, 20		#restaurar el puntero del stack
 
 	#mover el disco de source a destination
@@ -73,11 +68,6 @@ hanoi:
 	lw s2, 8(sp)		#recuperar la direccion de auxiliary
 	lw s1, 12(sp)		#recuperar la direccion de source
 	lw s0, 16(sp)		#recuperar el numero de discos
-	sw zero, 0(sp)		#limpiar direccion de retorno guardada en stack
-	sw zero, 4(sp)		#limpiar dest guardado en stack
-	sw zero, 8(sp)		#limpiar aux guardado en stack
-	sw zero, 12(sp)		#limpiar source guardado en stack
-	sw zero, 16(sp)		#limpiar numero de discos guardado en stack
 	addi sp, sp, 20		#restaurar el puntero del stack
 
 	jalr ra			#regresar al llamador
@@ -113,9 +103,6 @@ moverDisco:	#funcion para mover el disco superior de source a destination
 	sw t4, (s3)		#actualizar el tamaño de destination
 
 	#reinicio de registros temporales
-	addi t3, zero, 0	#restablecer el registro t3 a 0 (limpiar el disco temporal)
-	addi t4, zero, 0	#restablecer el registro t4 a 0 (limpiar el tamaño temporal)
-	addi t5, zero, 0	#restablecer el registro t5 a 0 (limpiar el calculo de bytes temporal)
 	addi a0, a0, 1		#aumentar el contador de movimientos en 1
 
 	jalr ra			#regresar al llamador
